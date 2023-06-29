@@ -1,0 +1,115 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите значение n: ");
+        int n = scanner.nextInt();
+
+        int triangleNumber = calculateTriangleNumber(n);
+        long factorial = calculateFactorial(n);
+
+        System.out.println("Треугольное число: " + triangleNumber);
+        System.out.println("Факториал: " + factorial);
+    }
+
+    private static int calculateTriangleNumber(int n) {
+        return (n * (n + 1)) / 2;
+    }
+
+    private static long calculateFactorial(int n) {
+        long factorial = 1;
+        for (int i = 1; i <= n; i++) {
+            factorial *= i;
+        }
+        return factorial;
+    }
+}
+
+
+
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Простые числа от 1 до 1000:");
+        for (int i = 2; i <= 1000; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+
+    private static boolean isPrime(int number) {
+        if (number < 2) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+
+
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Введите первое число: ");
+        double num1 = scanner.nextDouble();
+
+        System.out.print("Введите оператор (+, -, *, /): ");
+        String operator = scanner.next();
+
+        System.out.print("Введите второе число: ");
+        double num2 = scanner.nextDouble();
+
+        double result = calculate(num1, operator, num2);
+        System.out.println("Результат: " + result);
+    }
+
+    private static double calculate(double num1, String operator, double num2) {
+        double result;
+        switch (operator) {
+            case "+":
+                result = num1 + num2;
+                break;
+            case "-":
+                result = num1 - num2;
+                break;
+            case "*":
+                result = num1 * num2;
+                break;
+            case "/":
+                result = num1 / num2;
+                break;
+            default:
+                System.out.println("Неверный оператор");
+                result = 0;
+                break;
+        }
+        return result;
+    }
+}
+
+
+
+
+
+
+
+
+public class Main {
+    public static void main(String[] args) {
+        solveEquation();
+    }
+
+    private static void solveEquation() {
+        for (int q = 
