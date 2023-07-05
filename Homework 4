@@ -1,0 +1,120 @@
+import java.util.LinkedList;
+
+public class LinkedListOperations {
+    public static void main(String[] args) {
+        LinkedList<Integer> originalList = new LinkedList<>();
+        originalList.add(1);
+        originalList.add(2);
+        originalList.add(3);
+        originalList.add(4);
+        originalList.add(5);
+
+        LinkedList<Integer> reversedList = reverseLinkedList(originalList);
+
+        System.out.println("Исходный список: " + originalList);
+        System.out.println("Перевернутый список: " + reversedList);
+    }
+
+    public static <T> LinkedList<T> reverseLinkedList(LinkedList<T> originalList) {
+        LinkedList<T> reversedList = new LinkedList<>();
+        for (int i = originalList.size() - 1; i >= 0; i--) {
+            reversedList.add(originalList.get(i));
+        }
+        return reversedList;
+    }
+}
+
+
+
+
+
+
+import java.util.LinkedList;
+
+public class MyQueue<T> {
+    private LinkedList<T> elements = new LinkedList<>();
+
+    public void enqueue(T element) {
+        elements.addLast(element);
+    }
+
+    public T dequeue() {
+        return elements.removeFirst();
+    }
+
+    public T first() {
+        return elements.getFirst();
+    }
+
+    public boolean isEmpty() {
+        return elements.isEmpty();
+    }
+
+    public int size() {
+        return elements.size();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Calculator {
+    private Stack<Integer> stack;
+    private Stack<Integer> history;
+
+    public Calculator() {
+        stack = new Stack<>();
+        history = new Stack<>();
+    }
+
+    public void push(int num) {
+        stack.push(num);
+        history.push(num);
+    }
+
+    public int pop() {
+        history.pop();
+        return stack.pop();
+    }
+
+    public void undo() {
+        if (!history.isEmpty()) {
+            history.pop();
+            stack.clear();
+            stack.addAll(history);
+        }
+    }
+
+    public void displayStack() {
+        System.out.println("Current Stack: " + stack);
+    }
+
+    public static void main(String[] args) {
+        Calculator calculator = new Calculator();
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.print("Enter a number (
+
+
+
+
+
+
+
+
+
+
