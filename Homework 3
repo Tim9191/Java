@@ -1,0 +1,52 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class NumberListOperations {
+    public static void main(String[] args) {
+        // Исходный список чисел
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(5);
+        numbers.add(2);
+        numbers.add(8);
+        numbers.add(12);
+        numbers.add(1);
+
+        // Удаление четных чисел
+        removeEvenNumbers(numbers);
+
+        // Нахождение минимального значения
+        int min = findMinimum(numbers);
+
+        // Нахождение максимального значения
+        int max = findMaximum(numbers);
+
+        // Нахождение среднего значения
+        double average = findAverage(numbers);
+
+        System.out.println("Список после удаления четных чисел: " + numbers);
+        System.out.println("Минимальное значение: " + min);
+        System.out.println("Максимальное значение: " + max);
+        System.out.println("Среднее значение: " + average);
+    }
+
+    public static void removeEvenNumbers(List<Integer> numbers) {
+        numbers.removeIf(number -> number % 2 == 0);
+    }
+
+    public static int findMinimum(List<Integer> numbers) {
+        return Collections.min(numbers);
+    }
+
+    public static int findMaximum(List<Integer> numbers) {
+        return Collections.max(numbers);
+    }
+
+    public static double findAverage(List<Integer> numbers) {
+        int sum = 0;
+        for (int number : numbers) {
+            sum += number;
+        }
+        return (double) sum / numbers.size();
+    }
+}
