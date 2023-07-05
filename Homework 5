@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class TelephoneDirectory {
+    private Map<String, List<String>> phoneBook;
+
+    public TelephoneDirectory() {
+        phoneBook = new HashMap<>();
+    }
+
+    public void add(String lastName, String phoneNumber) {
+        List<String> numbers = phoneBook.getOrDefault(lastName, new ArrayList<>());
+        numbers.add(phoneNumber);
+        phoneBook.put(lastName, numbers);
+    }
+
+    public List<String> get(String lastName) {
+        return phoneBook.getOrDefault(lastName, new ArrayList<>());
+    }
+
+    public static void main(String[] args) {
+        TelephoneDirectory directory = new TelephoneDirectory();
+        directory.add("Smith", "1234567890");
+        directory.add("Johnson", "9876543210");
+        directory.add("Smith", "5555555555");
+
+        List<String> smithNumbers = directory.get("Smith");
+        System.out.println("Smith's numbers: " + smithNumbers);
+
+        List<String> johnsonNumbers = directory.get("Johnson");
+        System.out.println("Johnson's numbers: " + johnsonNumbers);
+    }
+}
