@@ -1,0 +1,53 @@
+import java.util.HashSet;
+import java.util.Objects;
+
+class Cat {
+    private String name;
+    private int age;
+
+    public Cat(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Переопределение методов hashCode() и equals() для корректного функционирования HashSet
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        Cat otherCat = (Cat) obj;
+        return age == otherCat.age && name.equals(otherCat.name);
+    }
+
+    @Override
+    public String toString() {
+        return "Cat{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        HashSet<Cat> catSet = new HashSet<>();
+
+        Cat cat1 = new Cat("Whiskers", 3);
+        Cat cat2 = new Cat("Snowball", 2);
+        Cat cat3 = new Cat("Whiskers", 3);
+
+        catSet.add(cat1);
+        catSet.add(cat2);
+        catSet.add(cat3);
+
+        System.out.println("Размер множества: " + catSet.size());
+        System.out.println("Элементы множества: " + catSet);
+    }
+}
